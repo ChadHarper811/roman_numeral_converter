@@ -17,17 +17,22 @@ const convertToRomanNumeral = number => {
         let romanNumeralOuput = "";
         while (number >= 0) {
             if (number > 1000) {
-                number - 1000;
+                number -= 1000;
                 romanNumeralOuput += "M";
             } else if (number >= 900) {
-                number - 900;
+                number -= 900;
                 romanNumeralOuput += "CM";
             } else if (number >= 500) {
-                number - 500;
+                number -= 500;
                 romanNumeralOuput += "D";
             } else if (number >= 400) {
-                number - 400;
+                number -= 400;
                 romanNumeralOuput += "CD";
+            } else if (number >= 100) {
+                number -= 100;
+                romanNumeralOuput += "C";
+            } else if (number >= 90) {
+                number -= 90;
             }
         }
     }
