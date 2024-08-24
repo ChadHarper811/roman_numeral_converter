@@ -5,6 +5,8 @@
     --orange: #c96700;
     --white: #f0f0f0;
     --off_white: #d6d6d6;
+    --red: #530000;
+    --light_red: #ff5353;
 }
 
 * {
@@ -91,6 +93,7 @@ label {
     display: none;
 }
 
-.invalid-ouput {
-    background-color: red;
+.invalid-output {
+    color: var(--red);
+    background-color: var(--light_red);
 }

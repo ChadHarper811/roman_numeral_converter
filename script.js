@@ -6,6 +6,7 @@ const outputText = document.getElementById("output-text");
 
 const convertToRomanNumeral = number => {
     let userInputNumber = number;
+    let romanNumeralOuput = "";
 
     if (userInputNumber === "") {
         outputText.innerText = "Please enter a valid number";
@@ -14,7 +15,6 @@ const convertToRomanNumeral = number => {
     } else if (userInputNumber > 3999) {
         outputText.innerText = "Please enter a number less than or equal to 3999"
     } else {
-        let romanNumeralOuput = "";
         while (userInputNumber >= 0) {
             if (userInputNumber > 1000) {
                 userInputNumber -= 1000;
@@ -49,15 +49,33 @@ const convertToRomanNumeral = number => {
             } else if (userInputNumber >= 5) {
                 userInputNumber -= 5;
                 romanNumeralOuput += "V";
-            } else if ()
+            } else if (userInputNumber >= 4) {
+                userInputNumber -= 4;
+                romanNumeralOuput += "IV";
+            } else if (userInputNumber >= 1) {
+                userInputNumber -= 1;
+                romanNumeralOuput += "I";
+            } else {
+                outputText.style.fontSize = "50px";
+                outputText.innerText = romanNumeralOuput;
+                outputDiv.classList.remove("invalid-output");
+                return
+            }
         }
     }
+    outputText.style.fontSize = "20px";
+    outputDiv.classList.add("invalid-output");
+}
 
-
+const convertEvent = () => {
+    convertToRomanNumeral(userInput.value);
+    userInput.value = "";
     outputDiv.classList.remove("hidden");
 }
 
-convertBtn.addEventListener("click", () => {
-    convertToRomanNumeral(userInput.value);
-    userInput.value = "";
-})
+convertBtn.addEventListener("click", convertEvent);
+userInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        convertEvent()
+    }
+});
