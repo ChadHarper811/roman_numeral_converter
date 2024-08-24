@@ -90,3 +90,7 @@ label {
 .hidden {
     display: none;
 }
+
+.invalid-ouput {
+    background-color: red;
+}

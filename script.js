@@ -5,35 +5,51 @@ const outputText = document.getElementById("output-text");
 
 
 const convertToRomanNumeral = number => {
-    const userInputNumber = number;
+    let userInputNumber = number;
 
-    if (number === "") {
+    if (userInputNumber === "") {
         outputText.innerText = "Please enter a valid number";
-    } else if (number < 0) {
+    } else if (userInputNumber < 0) {
         outputText.innerText = "Please enter a number greater than or equal to 1";
-    } else if (number > 3999) {
+    } else if (userInputNumber > 3999) {
         outputText.innerText = "Please enter a number less than or equal to 3999"
     } else {
         let romanNumeralOuput = "";
-        while (number >= 0) {
-            if (number > 1000) {
-                number -= 1000;
+        while (userInputNumber >= 0) {
+            if (userInputNumber > 1000) {
+                userInputNumber -= 1000;
                 romanNumeralOuput += "M";
-            } else if (number >= 900) {
-                number -= 900;
+            } else if (userInputNumber >= 900) {
+                userInputNumber -= 900;
                 romanNumeralOuput += "CM";
-            } else if (number >= 500) {
-                number -= 500;
+            } else if (userInputNumber >= 500) {
+                userInputNumber -= 500;
                 romanNumeralOuput += "D";
-            } else if (number >= 400) {
-                number -= 400;
+            } else if (userInputNumber >= 400) {
+                userInputNumber -= 400;
                 romanNumeralOuput += "CD";
-            } else if (number >= 100) {
-                number -= 100;
+            } else if (userInputNumber >= 100) {
+                userInputNumber -= 100;
                 romanNumeralOuput += "C";
-            } else if (number >= 90) {
-                number -= 90;
-            }
+            } else if (userInputNumber >= 90) {
+                userInputNumber -= 90;
+                romanNumeralOuput += "XC";
+            } else if (userInputNumber >= 50) {
+                userInputNumber -= 50;
+                romanNumeralOuput += "L";
+            } else if (userInputNumber >= 40) {
+                userInputNumber -= 40;
+                romanNumeralOuput += "XL";
+            } else if (userInputNumber >= 10) {
+                userInputNumber -= 10;
+                romanNumeralOuput += "X";
+            } else if (userInputNumber >= 9) {
+                userInputNumber -= 9;
+                romanNumeralOuput += "IX";
+            } else if (userInputNumber >= 5) {
+                userInputNumber -= 5;
+                romanNumeralOuput += "V";
+            } else if ()
         }
     }
 
